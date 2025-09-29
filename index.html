@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নতুন আপডেট</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 30px;
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: cardEntrance 0.6s ease-out;
+        }
+        
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid white;
+        }
+        
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: #2d3436;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #636e72;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00b894, #00a085);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.3);
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 184, 148, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+        
+        .download-page {
+            display: none;
+        }
+        
+        .link-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border: 2px dashed #74b9ff;
+        }
+        
+        .link-text {
+            color: #2d3436;
+            font-size: 13px;
+            word-break: break-all;
+            background: white;
+            padding: 12px 15px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 15px;
+            text-align: left;
+            font-family: monospace;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(116, 185, 255, 0.3);
+            width: 100%;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(116, 185, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #636e72;
+            border: 2px solid #ddd;
+            padding: 10px 20px;
+            margin-top: 15px;
+            font-size: 14px;
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: #f8f9fa;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .instruction {
+            font-size: 12px;
+            color: #636e72;
+            margin: 15px 0;
+            line-height: 1.6;
+            text-align: left;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+        }
+        
+        .apology {
+            font-size: 11px;
+            color: #e17055;
+            margin-top: 20px;
+            padding: 12px;
+            background: #fff9f7;
+            border-radius: 12px;
+            border-left: 4px solid #e17055;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-size: 13px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .feature-list {
+            text-align: left;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            font-size: 13px;
+            color: #2d3436;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: #74b9ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- হোম পেজ -->
+    <div class="card home-page">
+        <div class="logo-container">
+            <img src="https://ik.imagekit.io/swri54aju/20250928_024252.jpg?updatedAt=1759182232871" alt="App Logo">
+        </div>
+        
+        <div class="badge">নতুন আপডেট!</div>
+        
+        <h1>ভার্সন ২.০.১</h1>
+        <p class="subtitle">পুরানো ভার্সন থেকে সম্পূর্ণ নতুন ডিজাইন এবং উন্নত ফিচার সহ উপলব্ধ</p>
+        
+        <div class="feature-list">
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>নতুন এবং আধুনিক ইন্টারফেস</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>দ্রুত গতি এবং উন্নত পারফরমেন্স</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>সুরক্ষা সিস্টেম আপগ্রেড</span>
+            </div>
+        </div>
+        
+        <button class="btn-primary" onclick="showDownloadPage()">
+            আপডেট নাও
+        </button>
+    </div>
+
+    <!-- ডাউনলোড পেজ -->
+    <div class="card download-page">
+        <div class="logo-container" style="width: 80px; height: 80px;">
+            <img src="https://ik.imagekit.io/swri54aju/20250928_024252.jpg?updatedAt=1759182232871" alt="App Logo">
+        </div>
+        
+        <h1>ডাউনলোড লিংক</h1>
+        <p class="subtitle">নিচের লিংকটি কপি করে গুগল ক্রোমে পেস্ট করুন</p>
+        
+        <div class="link-container">
+            <div class="link-text" id="linkText">https://t.me/earningbyhabib</div>
+            <button class="btn-secondary" onclick="copyLink()">
+                লিংক কপি করুন
+            </button>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            ✅ লিংকটি সফলভাবে কপি করা হয়েছে!
+        </div>
+        
+        <div class="instruction">
+            <strong>ব্যবহার নির্দেশিকা:</strong><br>
+            ১. উপরের "লিংক কপি করুন" বাটনে ক্লিক করুন<br>
+            ২. গুগল ক্রোম ব্রাউজার ওপেন করুন<br>
+            ৩. অ্যাড্রেস বারে লিংকটি পেস্ট করে সার্চ দিন<br>
+            ৪. নতুন ভার্সন ডাউনলোড করুন
+        </div>
+        
+        <div class="apology">
+            সরাসরি এখান থেকে আপডেট দিতে না পারার জন্য আমরা искренই দুঃখিত
+        </div>
+        
+        <button class="btn-primary btn-outline" onclick="showHomePage()">
+            ← ফিরে যান
+        </button>
+    </div>
+
+    <script>
+        function showDownloadPage() {
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.download-page').style.display = 'block';
+        }
+        
+        function showHomePage() {
+            document.querySelector('.download-page').style.display = 'none';
+            document.querySelector('.home-page').style.display = 'block';
+        }
+        
+        function copyLink() {
+            const link = "https://t.me/earningbyhabib";
+            const successMessage = document.getElementById('successMessage');
+            
+            navigator.clipboard.writeText(link).then(() => {
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            }).catch(() => {
+                // পুরোনো ব্রাউজারের জন্য ফ্যালব্যাক
+                const textArea = document.createElement('textarea');
+                textArea.value = link;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            });
+        }
+        
+        // পেজ লোড হওয়ার সময় অ্যানিমেশন
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelector('.card').style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
