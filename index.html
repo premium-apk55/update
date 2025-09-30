@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>লিংক শর্টনার - EBH_5</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আসসালামু আলাইকুম</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,452 +14,178 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            margin: 0;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            color: #333;
-        }
-        
-        .banner-container {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 60px;
-            text-align: center;
-        }
-        
-        .banner {
-            width: 100%;
-            max-height: 120px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 3px solid rgba(255, 255, 255, 0.5);
-        }
-        
-        .logo-container {
-            margin-bottom: 80px;
-            text-align: center;
-        }
-        
-        .logo {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff8a00, #e52e71);
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 800;
-            padding: 5px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: float 3s ease-in-out infinite, borderGlow 2s ease-in-out infinite alternate;
-            border: 3px solid transparent;
-            background-clip: padding-box;
-            position: relative;
+            align-items: center;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            color: white;
         }
         
-        .logo:hover {
-            transform: scale(1.05);
+        .container {
+            text-align: center;
+            padding: 50px 40px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-out;
         }
         
-        .logo::before {
+        .container::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.5s;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #ff0000, #ff9900, #33cc33, #3399ff, #cc33ff);
+            border-radius: 25px;
+            z-index: -1;
+            animation: rotateBorder 4s linear infinite;
         }
         
-        .logo:hover::before {
-            left: 100%;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        @keyframes borderGlow {
-            0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 138, 0, 0.5); }
-            100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 46, 113, 0.8); }
-        }
-        
-        .box {
-            width: 100%;
-            max-width:450px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        h2 {
-            margin: 0 0 15px;
-            font-size: 24px;
-            color: #1a2a6c;
-            text-align: center;
-        }
-        
-        p {
-            margin: 0 0 20px;
-            color: #555;
-            font-size: 14px;
-            line-height: 1.5;
-            text-align: center;
-        }
-        
-        .row {
+        .greeting-line {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: textGlow 3s infinite alternate;
             display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        input[type="text"] {
-            flex: 1;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: #f9f9f9;
-        }
-        
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #1a2a6c;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.1);
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        button {
-            padding: 12px 20px;
-            border-radius: 10px;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            flex: 1;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        button:active {
-            transform: translateY(1px);
-        }
-        
-        #shortBtn {
-            background: linear-gradient(135deg, #1a2a6c, #2a3a9c);
-        }
-        
-        #shortBtn:hover {
-            background: linear-gradient(135deg, #2a3a9c, #3a4aac);
-        }
-        
-        #clearBtn {
-            background: linear-gradient(135deg, #6b7280, #8b94a5);
-        }
-        
-        #clearBtn:hover {
-            background: linear-gradient(135deg, #8b94a5, #a5aebf);
-        }
-        
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px dashed #1a2a6c;
-            background: rgba(26, 42, 108, 0.05);
-            display: none;
             align-items: center;
-            justify-content: space-between;
-            animation: fadeIn 0.5s ease;
+            gap: 15px;
+        }
+        
+        .message-line {
+            font-size: 1.8rem;
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            animation: slideIn 1s ease-out 0.5s both;
+        }
+        
+        .action-line {
+            font-size: 1.6rem;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            animation: slideIn 1s ease-out 1s both;
+        }
+        
+        .emoji {
+            font-size: 2rem;
+            animation: bounce 2s infinite;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .short {
-            font-weight: 700;
-            color: #1a2a6c;
-            word-break: break-all;
-            font-size: 18px;
+        @keyframes textGlow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+            to { text-shadow: 2px 2px 20px rgba(255, 255, 255, 0.3); }
         }
         
-        .short a {
-            color: #1a2a6c;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
         
-        .short a:hover {
-            color: #2a3a9c;
-            text-decoration: underline;
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
-        .copy {
-            background: linear-gradient(135deg, #16a34a, #20c05c);
-            border: none;
-            padding: 10px 15px;
-            color: #fff;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            white-space: nowrap;
+        @keyframes rotateBorder {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
         }
         
-        .copy:hover {
-            background: linear-gradient(135deg, #20c05c, #2ad56c);
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
         }
         
-        .service-info {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .muted {
-            font-size: 12px;
-            color: #777;
-            margin-top: 20px;
-            text-align: center;
-            line-height: 1.4;
-        }
-        
-        .error {
-            color: #d32f2f;
-            margin-top: 15px;
-            display: none;
-            font-size: 14px;
-            padding: 10px;
-            background: rgba(211, 47, 47, 0.1);
-            border-radius: 8px;
-            border-left: 4px solid #d32f2f;
-        }
-        
-        .spinner {
-            width: 18px;
-            height: 18px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-left-color: #fff;
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            display: inline-block;
+            animation: float 15s infinite linear;
         }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
         
-        .join-text {
-            text-align: center;
-            margin-top: 20px;
-            color: white;
-            font-size: 14px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        @media (max-width: 600px) {
-            .button-group {
-                flex-direction: column;
-            }
-            
-            .box {
-                padding: 20px;
-            }
-            
-            .banner {
-                max-height: 100px;
-            }
+        @media (max-width: 768px) {
+            .greeting-line { font-size: 2rem; }
+            .message-line { font-size: 1.5rem; }
+            .action-line { font-size: 1.3rem; }
+            .emoji { font-size: 1.7rem; }
         }
     </style>
 </head>
 <body>
-    <!-- ব্যানার ইমেজ ক্লিকযোগ্য করা হয়েছে -->
-    <div class="banner-container">
-        <a href="https://t.me/earningbyhabib" target="_blank" rel="noopener noreferrer">
-            <img src="https://i.postimg.cc/C1Wrd53H/20250924-182008.png" alt="EBH_5 ব্যানার" class="banner">
-        </a>
-    </div>
+    <div class="floating-elements" id="floatingElements"></div>
     
-    <div class="logo-container">
-        <a href="https://t.me/EBH_5" class="logo" target="_blank">☆ ᴇʙʜ_𝟱 ☆</a>
-        <div class="join-text"></div>
-   <div class="box">
-        <h2>🔗 লিংক শর্টনার 🔗</h2>
-        <p>আপনার দীর্ঘ লিংকগুলোকে শর্ট করে পেশাদার মার্কেটিং করুন - সহজ, দ্রুত ও কার্যকরী!</p>
-
-        <div class="row">
-            <input id="longUrl" type="text" placeholder="https:// দিয়ে শুরু করে আপনার লিংকটি লিখুন..." />
+    <div class="container">
+        <div class="greeting-line">
+            <span class="emoji">👋</span>
+            আসসালামু আলাইকুম
+            <span class="emoji">🕌</span>
         </div>
-
-        <div class="button-group">
-            <button id="shortBtn">
-                <span class="btn-icon">🔗</span> লিংক শর্ট করুন
-            </button>
-            <button id="clearBtn">
-                <span class="btn-icon">🗑️</span> ক্লিয়ার
-            </button>
+        
+        <div class="message-line">
+            <span class="emoji">🤔</span>
+            আপনি কি কাজ করতে চান?
+            <span class="emoji">💼</span>
         </div>
-
-        <div class="result" id="resultBox">
-            <div>
-                <div style="font-size:14px;color:#555;margin-bottom:5px">শর্ট URL</div>
-                <div class="short" id="shortLink">—</div>
-                <div class="service-info" id="usedService"></div>
-            </div>
-            <div>
-                <button class="copy" id="copyBtn">কপি করুন</button>
-            </div>
+        
+        <div class="action-line">
+            <span class="emoji">👇</span>
+            নিজ থেকে সেই বাটনে ক্লিক করুন
+            <span class="emoji">🚀</span>
         </div>
-
-        <div class="muted">লোগোতে ক্লিক করে আমাদের টেলিগ্রাম চ্যানেলে জয়েন হোন - নতুন নতুন আপডেট পেতে!</div>
-        <div class="error" id="errorBox"></div>
     </div>
 
     <script>
-        const btn = document.getElementById('shortBtn');
-        const clearBtn = document.getElementById('clearBtn');
-        const longUrl = document.getElementById('longUrl');
-        const resultBox = document.getElementById('resultBox');
-        const shortLink = document.getElementById('shortLink');
-        const errorBox = document.getElementById('errorBox');
-        const copyBtn = document.getElementById('copyBtn');
-        const usedService = document.getElementById('usedService');
-
-        // জেনারেট করা শর্ট লিংকগুলো ট্র্যাক করার জন্য
-        const generatedLinks = new Map();
-
-        function showError(msg){ 
-            errorBox.style.display='block'; 
-            errorBox.textContent = msg; 
-        }
+        // Create floating elements
+        const floatingElements = document.getElementById('floatingElements');
+        const colors = ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.15)', 'rgba(255,255,255,0.2)'];
         
-        function hideError(){ 
-            errorBox.style.display='none'; 
-            errorBox.textContent=''; 
-        }
-
-        function setLoading(on){
-            if(on){ 
-                btn.disabled=true; 
-                btn.innerHTML = '<span class="spinner"></span> প্রসেসিং...'; 
-            }
-            else { 
-                btn.disabled=false; 
-                btn.innerHTML = '<span class="btn-icon">🔗</span> লিংক শর্ট করুন'; 
-            }
-        }
-
-        // র‍্যান্ডম স্ট্রিং জেনারেটর
-        function generateRandomString(length = 6) {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let result = '';
-            for (let i = 0; i < length; i++) {
-                result += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return result;
-        }
-
-        async function callIsGd(url){
-            // প্রতিবার আলাদা লিংক পেতে আমরা মূল URL-এ একটি র‍্যান্ডম প্যারামিটার যোগ করব
-            const randomParam = 'ebh_' + generateRandomString(8);
-            const separator = url.includes('?') ? '&' : '?';
-            const uniqueUrl = url + separator + randomParam + '=1';
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.classList.add('floating-element');
             
-            // is.gd JSON API
-            const endpoint = 'https://is.gd/create.php?format=json&url=' + encodeURIComponent(uniqueUrl);
-            const res = await fetch(endpoint);
-            if(!res.ok) throw new Error('is.gd failed status ' + res.status);
-            const j = await res.json();
-            if(j && j.shorturl) return j.shorturl;
-            throw new Error('is.gd bad response');
+            const size = Math.random() * 100 + 20;
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            element.style.background = colors[Math.floor(Math.random() * colors.length)];
+            element.style.left = `${Math.random() * 100}%`;
+            element.style.animationDuration = `${Math.random() * 20 + 10}s`;
+            element.style.animationDelay = `${Math.random() * 5}s`;
+            
+            floatingElements.appendChild(element);
         }
-
-        btn.addEventListener('click', async () => {
-            hideError();
-            resultBox.style.display='none';
-            shortLink.textContent = '';
-            usedService.textContent = '';
-            const url = longUrl.value.trim();
-            
-            if(!url){ 
-                showError('দয়া করে একটি লিংক লিখুন (https://...)'); 
-                return; 
-            }
-            
-            try{ 
-                new URL(url); 
-            } catch(e){ 
-                showError('ভুল URL — https:// দিয়ে শুরু করা উচিত'); 
-                return; 
-            }
-            
-            setLoading(true);
-
-            try{
-                const shortUrl = await callIsGd(url);
-                shortLink.innerHTML = `<a href="${shortUrl}" target="_blank" rel="noopener noreferrer">${shortUrl}</a>`;
-                usedService.textContent = 'আপনার শর্ট লিংক কপি করে ব্যাবহার করুন। 🔗🥰';
-                resultBox.style.display='flex';
-            }catch(err){
-                console.error(err);
-                showError('লিংক শর্ট করতে ব্যর্থ হয়েছে। দয়া করে আবার চেষ্টা করুন।');
-            }finally{
-                setLoading(false);
-            }
-        });
-
-        copyBtn.addEventListener('click', async () => {
-            const txt = shortLink.innerText.trim();
-            if(!txt) return;
-            try{
-                await navigator.clipboard.writeText(txt);
-                copyBtn.textContent = 'কপি হয়েছে ✓';
-                setTimeout(()=> copyBtn.textContent = 'কপি করুন', 1500);
-            }catch(e){
-                alert('কপি ব্যর্থ — ম্যানুয়ালি কপি করুন: ' + txt);
-            }
-        });
-
-        clearBtn.addEventListener('click', ()=> { 
-            longUrl.value=''; 
-            resultBox.style.display='none'; 
-            hideError(); 
-        });
-
-        longUrl.addEventListener('keydown', (e)=>{ 
-            if(e.key==='Enter') btn.click(); 
-        });
     </script>
 </body>
-          </html>
+</html>
