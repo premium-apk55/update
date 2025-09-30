@@ -3,301 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আসসালামু আলাইকুম</title>
+    <title>EBH 5 - নতুন আপডেট</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(-45deg, #1e3c72, #2a5298, #3d5aa9, #4e73b8);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            position: relative;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            margin: 0 auto 20px;
             overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 4px solid white;
         }
         
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        /* Floating Particles */
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
+        .box {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
         
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 40%; animation-delay: 6s; }
-        .particle:nth-child(5) { left: 50%; animation-delay: 8s; }
-        .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
-        .particle:nth-child(7) { left: 70%; animation-delay: 12s; }
-        .particle:nth-child(8) { left: 80%; animation-delay: 14s; }
-        
-        @keyframes float {
-            0% {
-                opacity: 0;
-                transform: translateY(100vh) scale(0);
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100vh) scale(1);
-            }
+        .app-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2575fc;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         
-        /* Bubble Effect */
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: bubble 20s infinite ease-in-out;
+        .update-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
-        .bubble:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-delay: 3s; }
-        .bubble:nth-child(3) { width: 100px; height: 100px; left: 35%; animation-delay: 6s; }
-        .bubble:nth-child(4) { width: 40px; height: 40px; left: 50%; animation-delay: 9s; }
-        .bubble:nth-child(5) { width: 70px; height: 70px; left: 70%; animation-delay: 12s; }
-        .bubble:nth-child(6) { width: 90px; height: 90px; left: 85%; animation-delay: 15s; }
-        
-        @keyframes bubble {
-            0% {
-                transform: translateY(100vh) scale(0) rotate(0deg);
-                opacity: 0;
-            }
-            20% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1) rotate(360deg);
-                opacity: 0;
-            }
+        .message {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #444;
         }
         
-        /* Digital Clock Styling */
-        .digital-clock {
-            background: linear-gradient(145deg, rgba(0,0,0,0.9), rgba(20,20,50,0.9));
-            padding: 30px 50px;
-            border-radius: 25px;
-            margin-bottom: 50px;
-            border: 3px solid transparent;
-            background-clip: padding-box;
-            position: relative;
-            box-shadow: 
-                0 0 60px rgba(0, 255, 255, 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.1),
-                inset 0 -1px 0 rgba(0,0,0,0.3);
-        }
-        
-        .digital-clock::before {
-            content: '';
-            position: absolute;
-            top: -3px; left: -3px; right: -3px; bottom: -3px;
-            background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0, #ff1493, #00ff7f, #1e90ff);
-            background-size: 300% 300%;
-            border-radius: 25px;
-            z-index: -1;
-            animation: neonGlow 4s ease-in-out infinite;
-        }
-        
-        @keyframes neonGlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .time-display {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #00ffff;
-            text-shadow: 
-                0 0 10px #00ffff,
-                0 0 20px #00ffff,
-                0 0 40px #00ffff,
-                0 0 80px #00ffff;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 4px;
-            text-align: center;
-        }
-        
-        .date-display {
-            font-size: 1.4rem;
-            color: #ffffff;
-            text-align: center;
-            margin-top: 15px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.8);
-            font-weight: 300;
-        }
-        
-        /* Content Styling */
-        .content {
-            text-align: center;
-            z-index: 10;
-            position: relative;
-        }
-        
-        .line {
-            margin: 25px 0;
-            font-size: 1.8rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            color: #ffffff;
-            text-shadow: 
-                2px 2px 4px rgba(0,0,0,0.8),
-                0 0 20px rgba(255,255,255,0.3);
-            font-weight: 600;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 1s ease-out forwards;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            padding: 15px 25px;
+        .btn {
+            display: inline-block;
+            background: #2575fc;
+            color: white;
+            padding: 14px 30px;
             border-radius: 50px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+            cursor: pointer;
+            border: none;
         }
         
-        .line:nth-child(1) { animation-delay: 0.8s; }
-        .line:nth-child(2) { animation-delay: 1.3s; }
-        .line:nth-child(3) { animation-delay: 1.8s; }
-        
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .btn:hover {
+            background: #1a68e3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 117, 252, 0.5);
         }
         
-        .emoji {
-            font-size: 2.2rem;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.6));
+        .btn:active {
+            transform: translateY(0);
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .time-display {
-                font-size: 2.5rem;
-                letter-spacing: 2px;
-            }
-            .digital-clock {
-                padding: 20px 30px;
-            }
-            .line {
-                font-size: 1.4rem;
-                padding: 12px 20px;
-                gap: 15px;
-            }
-            .emoji {
-                font-size: 1.8rem;
-            }
+        .footer-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        
+        .update-page {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .update-link {
+            background: #f5f7ff;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+            word-break: break-all;
+            border: 1px dashed #2575fc;
+            color: #2575fc;
+            font-weight: 500;
+        }
+        
+        .instructions {
+            background: #fff9e6;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .apology {
+            background: #ffeaea;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #f44336;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .back-btn {
+            background: #6c757d;
+        }
+        
+        .back-btn:hover {
+            background: #5a6268;
         }
         
         @media (max-width: 480px) {
-            .time-display {
-                font-size: 2rem;
+            .box, .update-page {
+                padding: 20px;
             }
-            .line {
-                font-size: 1.2rem;
-                padding: 10px 15px;
+            
+            .app-name {
+                font-size: 24px;
+            }
+            
+            .message {
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Particles -->
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    
-    <!-- Floating Bubbles -->
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    
-    <div class="digital-clock">
-        <div class="time-display" id="clock">00:00:00</div>
-        <div class="date-display" id="date">Loading...</div>
-    </div>
-    
-    <div class="content">
-        <div class="line">
-            <span class="emoji">👋</span>
-            আসসালামু আলাইকুম
-            <span class="emoji">🕌</span>
+    <div class="container">
+        <!-- Main Page -->
+        <div id="mainPage" class="box">
+            <div class="logo">
+                <img src="https://ik.imagekit.io/swri54aju/20250928_024252.jpg?updatedAt=1759182232871" alt="EBH 5 Logo">
+            </div>
+            
+            <h1 class="app-name">EBH 5</h1>
+            
+            <img src="https://i.postimg.cc/7PQTms05/Screenshot-20250930-102828.jpg" alt="Update Screenshot" class="update-image">
+            
+            <p class="message">নতুন আপডেট যারা এখনো দেননি নতুন আপডেট দিয়ে নেন</p>
+            
+            <button id="updateBtn" class="btn">আপডেট নাও</button>
         </div>
         
-        <div class="line">
-            <span class="emoji">🤔</span>
-            আপনি কি কাজ করতে চান?
-            <span class="emoji">💼</span>
+        <!-- Update Page -->
+        <div id="updatePage" class="update-page">
+            <h1 class="app-name">আপডেট লিংক</h1>
+            
+            <div class="update-link" id="updateLink">https://t.me/earningbyhabib/1825</div>
+            
+            <button id="copyBtn" class="btn">লিংক কপি করুন</button>
+            
+            <div class="instructions">
+                <strong>নির্দেশনা:</strong> লিংকটি কপি করে গুগল ক্রোমে নিয়ে পেস্ট করবেন। সার্চ করলে আপনি পেয়ে যাবেন আমাদের আপডেট নতুন অ্যাপস 
+            </div>
+            
+            <div class="apology">
+                সরাসরি এখান থেকে আপডেট টা না দিতে পারার জন্য আমরা খুবই দুঃখিত।
+            </div>
+            
+            <button id="backBtn" class="btn back-btn">হোম পেজে ফিরে যান</button>
         </div>
         
-        <div class="line">
-            <span class="emoji">👇</span>
-            নিজ থেকে সেই বাটনে ক্লিক করুন
-            <span class="emoji">🚀</span>
-        </div>
+        <p class="footer-text">যারা এই আপডেটটা দিয়ে নিবেন তাদের সমনে এই আপডেট পেজ দেখলেও কোনো সমস্যা নাই। আপডেট দিয়েছেন তো দিয়েছেন, যার আপডেট দেন নাই তার আপডেট দিয়ে নিন। একবার আপডেট দিলেই হবে।</p>
     </div>
 
     <script>
-        function updateClock() {
-            const now = new Date();
-            const bangladeshTime = new Date(now.getTime() + (6 * 60 * 60 * 1000));
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainPage = document.getElementById('mainPage');
+            const updatePage = document.getElementById('updatePage');
+            const updateBtn = document.getElementById('updateBtn');
+            const backBtn = document.getElementById('backBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const updateLink = document.getElementById('updateLink');
             
-            const hours = String(bangladeshTime.getUTCHours()).padStart(2, '0');
-            const minutes = String(bangladeshTime.getUTCMinutes()).padStart(2, '0');
-            const seconds = String(bangladeshTime.getUTCSeconds()).padStart(2, '0');
+            // Show update page when update button is clicked
+            updateBtn.addEventListener('click', function() {
+                mainPage.style.display = 'none';
+                updatePage.style.display = 'block';
+            });
             
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            // Show main page when back button is clicked
+            backBtn.addEventListener('click', function() {
+                updatePage.style.display = 'none';
+                mainPage.style.display = 'block';
+            });
             
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                timeZone: 'Asia/Dhaka'
-            };
-            
-            const banglaDate = bangladeshTime.toLocaleDateString('bn-BD', options);
-            document.getElementById('date').textContent = banglaDate + ' - বাংলাদেশ সময়';
-        }
-        
-        setInterval(updateClock, 1000);
-        updateClock();
+            // Copy update link to clipboard
+            copyBtn.addEventListener('click', function() {
+                const linkText = updateLink.textContent;
+                
+                // Create a temporary textarea element to copy text
+                const textArea = document.createElement('textarea');
+                textArea.value = linkText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Change button text temporarily to indicate success
+                copyBtn.textContent = 'লিংক কপি হয়েছে!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'লিংক কপি করুন';
+                }, 2000);
+            });
+        });
     </script>
 </body>
 </html>
