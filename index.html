@@ -132,14 +132,31 @@
             margin-bottom: 15px;
         }
 
-        .today-offer-btn {
-            display: inline-block;
+        .offer-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .offer-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffdd59;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .offer-btn {
             background: linear-gradient(45deg, #ff416c, #ff4b2b);
             color: white;
             text-decoration: none;
-            padding: 10px 25px;
+            padding: 8px 20px;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
             transition: all 0.3s ease;
@@ -147,7 +164,7 @@
             cursor: pointer;
         }
 
-        .today-offer-btn:hover {
+        .offer-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
         }
@@ -219,6 +236,10 @@
                 font-size: 1.1rem;
             }
             
+            .offer-text {
+                font-size: 1.1rem;
+            }
+            
             .line {
                 font-size: 1.1rem;
             }
@@ -237,9 +258,13 @@
                 font-size: 0.9rem;
             }
             
-            .today-offer-btn {
-                font-size: 0.9rem;
-                padding: 8px 20px;
+            .offer-text {
+                font-size: 1rem;
+            }
+            
+            .offer-btn {
+                font-size: 0.8rem;
+                padding: 6px 15px;
             }
             
             .line {
@@ -275,7 +300,11 @@
     <div class="clock-container">
         <div class="time-display" id="clock">00:00:00</div>
         <div class="date-display" id="date">লোড হচ্ছে...</div>
-        <a href="https://otieu.com/4/9924722" target="_blank" class="today-offer-btn">Today Offer Click Now</a>
+    </div>
+    
+    <div class="offer-section">
+        <span class="offer-text">Today Offer</span>
+        <a href="https://otieu.com/4/9924722" target="_blank" class="offer-btn">Click Now</a>
     </div>
     
     <div class="content">
