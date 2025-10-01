@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ডিজিটাল ঘড়ি ও আজকের অফার</title>
+    <title>ভিডিও দেখুন</title>
     <style>
         * {
             margin: 0;
@@ -11,359 +11,91 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            position: relative;
             padding: 20px;
         }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .particle:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 10%;
-            left: 20%;
-            animation-delay: 0s;
-        }
-
-        .particle:nth-child(2) {
-            width: 100px;
-            height: 100px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .bubble {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: bubble 8s infinite ease-in-out;
-        }
-
-        .bubble:nth-child(3) {
-            width: 40px;
-            height: 40px;
-            top: 20%;
-            right: 30%;
-            animation-delay: 1s;
-        }
-
-        .bubble:nth-child(4) {
-            width: 60px;
-            height: 60px;
-            top: 70%;
-            left: 10%;
-            animation-delay: 3s;
-        }
-
-        .bubble:nth-child(5) {
-            width: 30px;
-            height: 30px;
-            top: 40%;
-            left: 30%;
-            animation-delay: 5s;
-        }
-
-        .bubble:nth-child(6) {
-            width: 50px;
-            height: 50px;
-            top: 80%;
-            right: 20%;
-            animation-delay: 7s;
-        }
-
-        .bubble:nth-child(7) {
-            width: 70px;
-            height: 70px;
-            top: 10%;
-            left: 60%;
-            animation-delay: 4s;
-        }
-
-        .bubble:nth-child(8) {
-            width: 45px;
-            height: 45px;
-            top: 50%;
-            right: 40%;
-            animation-delay: 6s;
-        }
-
-        .clock-container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+        
+        .container {
+            background: white;
             border-radius: 20px;
-            padding: 25px 40px;
-            margin-bottom: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            z-index: 10;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            padding: 40px;
+            max-width: 600px;
             width: 100%;
-            max-width: 500px;
+            text-align: center;
         }
-
-        .time-display {
-            font-size: 3.5rem;
-            font-weight: 700;
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            margin-bottom: 10px;
-            letter-spacing: 3px;
+        
+        .header {
+            margin-bottom: 30px;
         }
-
-        .date-display {
-            font-size: 1.3rem;
-            font-weight: 700; /* বোল্ড করা হয়েছে */
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        
+        h1 {
+            color: #333;
+            font-size: 28px;
             margin-bottom: 15px;
+            line-height: 1.4;
         }
-
-        .offer-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
+        
+        .thumbnail-container {
+            margin: 25px 0;
+        }
+        
+        .thumbnail {
             width: 100%;
-            max-width: 500px;
-            margin-bottom: 20px;
-            padding: 0 10px;
+            max-width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
-
-        .offer-text {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #ffdd59;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        
+        .instruction {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
         }
-
-        .offer-btn {
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        
+        .video-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
-            transition: all 0.3s ease;
             border: none;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px;
             cursor: pointer;
-        }
-
-        .offer-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
-        }
-
-        .content {
-            text-align: center;
-            z-index: 10;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .line-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 15px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            margin-top: 15px;
+            text-decoration: none;
+            display: inline-block;
         }
-
-        .line-box:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .line {
-            font-size: 1.3rem;
-            font-weight: 700; /* বোল্ড করা হয়েছে */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .emoji {
-            font-size: 1.5rem;
-            margin: 0 10px;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.7;
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 0.3;
-            }
-        }
-
-        @keyframes bubble {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: translateY(-40px) scale(1.2);
-                opacity: 0.8;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .time-display {
-                font-size: 2.8rem;
-            }
-            
-            .date-display {
-                font-size: 1.1rem;
-            }
-            
-            .offer-text {
-                font-size: 1.1rem;
-            }
-            
-            .line {
-                font-size: 1.1rem;
-            }
-            
-            .line-box {
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .time-display {
-                font-size: 2.2rem;
-            }
-            
-            .date-display {
-                font-size: 0.9rem;
-            }
-            
-            .offer-text {
-                font-size: 1rem;
-            }
-            
-            .offer-btn {
-                font-size: 0.8rem;
-                padding: 6px 15px;
-            }
-            
-            .line {
-                font-size: 1rem;
-            }
-            
-            .emoji {
-                font-size: 1.2rem;
-            }
-            
-            .line-box {
-                padding: 12px;
-            }
-            
-            .clock-container {
-                padding: 20px;
-            }
+        
+        .video-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
         }
     </style>
 </head>
 <body>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    
-    <!-- Floating Bubbles -->
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    
-    <div class="clock-container">
-        <div class="time-display" id="clock">00:00:00</div>
-        <div class="date-display" id="date">লোড হচ্ছে...</div>
-    </div>
-    
-    <div class="offer-section">
-        <span class="offer-text">Today Offer</span>
-        <a href="https://premium-apk55.github.io/offerlink/" target="_blank" class="offer-btn">Click Now</a>
-    </div>
-    
-    <div class="content">
-        <div class="line-box">
-            <div class="line">
-                <span class="emoji">👋</span>
-                আসসালামু আলাইকুম
-                <span class="emoji">🕌</span>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1>কাজটি ভালোভাবে বোঝার জন্য এবং সংক্ষেপে কাজ করার জন্য ভিডিওটি দেখুন</h1>
         </div>
         
-        <div class="line-box">
-            <div class="line">
-                <span class="emoji">🤔</span>
-                আপনি কি কাজ করতে চান?
-                <span class="emoji">💼</span>
-            </div>
+        <div class="thumbnail-container">
+            <img src="https://i.postimg.cc/ZqMJcHx2/20250930-215048.jpg" alt="ভিডিও থাম্বনেইল" class="thumbnail">
         </div>
         
-        <div class="line-box">
-            <div class="line">
-                <span class="emoji">👇</span>
-                নিচ থেকে সেই বাটনে ক্লিক করুন
-                <span class="emoji">🚀</span>
-            </div>
-        </div>
+        <p class="instruction">ভিডিও দেখতে নিচের বাটনে ক্লিক করুন</p>
+        
+        <a href="https://www.youtube.com/watch?v=0e9KH5H9FgI" class="video-button" target="_blank">
+            ভিডিও দেখুন
+        </a>
     </div>
-
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const bangladeshTime = new Date(now.getTime() + (6 * 60 * 60 * 1000));
-            
-            // Convert to 12-hour format
-            let hours = bangladeshTime.getUTCHours();
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
-            
-            const minutes = String(bangladeshTime.getUTCMinutes()).padStart(2, '0');
-            const seconds = String(bangladeshTime.getUTCSeconds()).padStart(2, '0');
-            
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-            
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                timeZone: 'Asia/Dhaka'
-            };
-            
-            const banglaDate = bangladeshTime.toLocaleDateString('bn-BD', options);
-            document.getElementById('date').textContent = banglaDate + ' - বাংলাদেশ সময়';
-        }
-        
-        setInterval(updateClock, 1000);
-        updateClock();
-    </script>
 </body>
 </html>
