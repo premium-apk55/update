@@ -87,7 +87,7 @@
             animation-delay: 7s;
         }
 
-        .payment-section {
+        .telegram-section {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -95,62 +95,20 @@
             z-index: 10;
             width: 100%;
             max-width: 320px;
+            text-align: center;
         }
 
-        .payment-text {
+        .telegram-text {
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 8px;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             text-align: center;
-        }
-
-        .payment-btn {
-            position: relative;
-            background: transparent;
-            color: white;
-            text-decoration: none;
-            padding: 8px 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-            border: none;
-            overflow: hidden;
-            z-index: 1;
-            border-radius: 5px;
+            color: #ffdd59;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
             width: 100%;
-            max-width: 160px;
-        }
-
-        .payment-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 2px solid transparent;
-            border-radius: 5px;
-            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000) no-repeat;
-            background-size: 400%;
-            z-index: -1;
-            animation: rgb-border 3s linear infinite;
-        }
-
-        .payment-btn::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            background: rgba(26, 42, 108, 0.9);
-            border-radius: 3px;
-            z-index: -1;
-        }
-
-        .payment-btn:hover {
-            transform: scale(1.05);
         }
 
         .clock-container {
@@ -463,18 +421,6 @@
             }
         }
 
-        @keyframes rgb-border {
-            0% {
-                background-position: 0 0;
-            }
-            50% {
-                background-position: 400% 0;
-            }
-            100% {
-                background-position: 0 0;
-            }
-        }
-
         /* মোবাইল ডিভাইসের জন্য অতিরিক্ত স্টাইল */
         @media (max-width: 380px) {
             .time-display {
@@ -512,7 +458,7 @@
         }
 
         @media (max-width: 320px) {
-            .payment-text {
+            .telegram-text {
                 font-size: 1.1rem;
             }
             
@@ -544,10 +490,9 @@
     <div class="bubble"></div>
     <div class="bubble"></div>
     
-    <!-- মূল্য পরিশোধ করুন সেকশন -->
-    <div class="payment-section">
-        <div class="payment-text">মূল্য পরিশোধ করুন</div>
-        <button class="payment-btn" id="paymentBtn">ক্লিক করুন</button>
+    <!-- টেলিগ্রাম সেকশন -->
+    <div class="telegram-section">
+        <div class="telegram-text">উপরে জয়েন নাউ বাটনে ক্লিক করে সবাই টেলিগ্রাম গ্রুপে জয়েন থাকবেন ধন্যবাদ🥰</div>
     </div>
     
     <div class="clock-container">
@@ -592,46 +537,6 @@
         </div>
     </div>
 
-    <!-- মোডাল -->
-    <div class="modal" id="paymentModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeModal">&times;</span>
-            <h2 class="modal-title">📌✨ EBH 5 অফিশিয়াল নোটিশ ✨📌</h2>
-            <div class="modal-message">
-                <p>🕌 <span class="modal-highlight">আসসালামু আলাইকুম ওয়া রহমাতুল্লাহ</span> 🌿</p>
-                <br>
-                <p>💎 আপনারা যে অ্যাপটি ব্যবহার করছেন — <span class="modal-highlight">EBH 5</span><br>
-                এটি সম্পূর্ণ ফ্রি & এডস-ফ্রি ✅<br>
-                আমার চেষ্টা ছিল যেন আপনারা কোনো ঝামেলা ছাড়াই সহজভাবে উপকার পান ✨</p>
-                <br>
-                <p>👨‍💻 আমি বড় কোনো কোম্পানি বা ডেভেলপার নই, তবে আলহামদুলিল্লাহ আপনাদের উপকারের জন্য সর্বোচ্চ চেষ্টা করেছি 🌸</p>
-                <br>
-                <p>⚡ সাধারণত এরকম একটি টুলস যদি কোনো প্রফেশনাল ডেভেলপার তৈরি করতো,<br>
-                তাহলে প্রত্যেক ব্যবহারকারীর কাছ থেকে <span class="modal-highlight">৫০০ – ১০০০ টাকা পর্যন্ত মূল্য নিতো</span> 💰<br>
-                কিন্তু আমি আপনাদের জন্য এটি সম্পূর্ণ ফ্রি রেখেছি ✅</p>
-                <br>
-                <p>📌 তাই যদি মনে হয় <span class="modal-highlight">EBH 5</span> আপনার উপকারে আসছে,<br>
-                তাহলে খুশি মনে যার যতটুকু সামর্থ্য ও ইচ্ছা আছে,<br>
-                সেটুকুই বিকাশ/নগদে পাঠাতে পারেন 💳🤲</p>
-                <br>
-                <p>📞 বিকাশ / নগদ পার্সোনাল নাম্বার:</p>
-                <div class="modal-number-section">
-                    <div class="modal-number">01601735574</div>
-                    <button class="copy-btn" id="copyBtn">কপি করুন</button>
-                </div>
-                <br>
-                <p>🖼️ পাঠানোর পর দয়া করে একটি স্ক্রিনশট আমার ইনবক্সে শেয়ার করবেন:</p>
-                <a href="https://t.me/EBH_5" target="_blank" class="modal-link">📩 https://t.me/EBH_5</a>
-                <br><br>
-                <p>❌ না দিলে কোনো সমস্যা নেই।<br>
-                ✅ দিলে এটিকে দান নয়, বরং অ্যাপটির মূল্য হিসেবে ভাববেন 💚</p>
-                <br>
-                <p>🤍 আপনাদের সন্তুষ্টি, ভালোবাসা আর দো'আইই আমার সবচেয়ে বড় অর্জন 🌿✨</p>
-            </div>
-            <button class="back-btn" id="backBtn">হোম পেজে ফিরে যান</button>
-        </div>
-    </div>
-
     <script>
         function updateClock() {
             const now = new Date();
@@ -662,64 +567,6 @@
         
         setInterval(updateClock, 1000);
         updateClock();
-        
-        // মোডাল ফাংশনালিটি
-        const paymentBtn = document.getElementById('paymentBtn');
-        const paymentModal = document.getElementById('paymentModal');
-        const closeModal = document.getElementById('closeModal');
-        const backBtn = document.getElementById('backBtn');
-        const copyBtn = document.getElementById('copyBtn');
-        
-        paymentBtn.addEventListener('click', function() {
-            paymentModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-        
-        function closeModalFunc() {
-            paymentModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        closeModal.addEventListener('click', closeModalFunc);
-        
-        backBtn.addEventListener('click', closeModalFunc);
-        
-        // মোডালের বাইরে ক্লিক করলে বন্ধ হবে
-        window.addEventListener('click', function(event) {
-            if (event.target === paymentModal) {
-                closeModalFunc();
-            }
-        });
-        
-        // নাম্বার কপি ফাংশনালিটি
-        copyBtn.addEventListener('click', function() {
-            const phoneNumber = '01601735574';
-            navigator.clipboard.writeText(phoneNumber).then(function() {
-                // Alert when copy is successful
-                const originalText = copyBtn.textContent;
-                copyBtn.textContent = 'কপি হয়েছে!';
-                copyBtn.style.background = 'linear-gradient(45deg, #4CAF50, #2E7D32)';
-                
-                setTimeout(function() {
-                    copyBtn.textContent = originalText;
-                }, 2000);
-            }).catch(function(err) {
-                console.error('কপি করতে সমস্যা হয়েছে: ', err);
-                // Fallback for older browsers
-                const textArea = document.createElement("textarea");
-                textArea.value = phoneNumber;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand("copy");
-                document.body.removeChild(textArea);
-                
-                const originalText = copyBtn.textContent;
-                copyBtn.textContent = 'কপি হয়েছে!';
-                setTimeout(function() {
-                    copyBtn.textContent = originalText;
-                }, 2000);
-            });
-        });
     </script>
 </body>
 </html>
